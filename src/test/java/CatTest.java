@@ -1,29 +1,29 @@
-import com.example.Animal;
 import com.example.Cat;
 import com.example.Feline;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Spy;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
 
-    @Spy
+    @Mock
     private Feline feline;
 
     @Test
     public void catGetSoundTest() {
         Cat cat = new Cat(feline);
-        Assert.assertEquals(cat.getSound(), "Мяу");
+        Assert.assertEquals("Мяу", cat.getSound());
     }
 
     @Test
     public void catGetFoodTest() throws Exception {
         Cat cat = new Cat(feline);
-        Animal animal = new Animal();
-        Assert.assertEquals(cat.getFood(),animal.getFood("Хищник"));
+        cat.getFood();
+        Mockito.verify(feline, Mockito.times(1)).eatMeat();
     }
 
 }
