@@ -16,7 +16,7 @@ public class FelineTest {
     public void felineEatMeatTest() throws Exception{
         Feline feline = new Feline();
         Animal animal = new Animal();
-        Assert.assertEquals(feline.eatMeat(), animal.getFood("Хищник"));
+        Assert.assertEquals(animal.getFood("Хищник"), feline.eatMeat());
         }
 
     @Test
