@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Lion {
 
-    private Feline feline;
+    private final Feline feline;
     boolean hasMane;
 
     public Lion(String sex, Feline feline) throws Exception {
@@ -14,7 +14,7 @@ public class Lion {
         } else if ("Самка".equals(sex)) {
             hasMane = false;
         } else {
-            throw new Exception("Используйте допустимые значения пола животного - самей или самка");
+            throw new Exception("Используйте допустимые значения пола животного - самец или самка");
         }
     }
 
